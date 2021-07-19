@@ -1,0 +1,3134 @@
+// In this Note i had added my rough notes and what i learned in c++ nothing more than that :)
+/////////////////////////////////////////////////////////////////////////////////////////
+
+**Functions for DATA MANIPULATION**
+//(only for[array type strings] -char strings[]- )
+
+strcpy()
+strcat() concortnate or append
+strlen()
+strchr()//(checking purpse) if true --> !=NULL ; 
+strcmp()//true ==0. //only return true if hole is same.
+strstr()// if strings elements same it will print it all;
+        // compare between 2 strings;
+	//Actually similar to strcmp but strcpm==compare  //return -1 or number
+	//And strstr find string in another string. // return b string
+/////////////////////////////////////////////////////////////////////////////////////////
+**String manipulation**///////
+	//use DOT(.) operter
+	// variable.function(worker)
+
+1)append(specified char to add)
+
+2)find (specified char to find) a.length>=a.find
+//otherwise it will print the stage nbr of string
+
+3)at()
+4)length()
+5)swap() 
+6)compare() //true = 0;  similar to strcmp.
+7)erase(position,lenght) //erase the number pointed char.
+  
+/////////////////////////////////////////////////////////////////////////////////////////
+Headder -->> #include <cctype>
+**try string::npos**  //mabe its == NULL.
+**all char**
+//0=false;
+//1=true;
+//declaration--> function_name(variable_name[pos])
+isalpha()
+isdigit()
+isalnum()
+isupper() //or// strupr(string_Name)
+islower() //or// strlwr(string_name)
+toupper()
+tolower()
+ispunct()***********************
+/////////////////////////////////////////////////////////////////////////////////////////
+
+***POINTERS****
+DECLARATION = *pointer name.
+value setting ---> poiter name = variable;.
+*pointer = value for assinged variable
+  ex. int a=&10;
+  here *pointer==10;
+
+pointer name with    * == value of variable;
+pointer name without * == address of variable;
+
+Pointer for Pointer:-
+
+/*
+ *  int a=10;
+ * int *p;		p=&a;	here p has adrress of a
+ * int *p2;  p2=p;    here p2 also has adress of a
+ * If we assing value for *p or p2 both will save it in a
+ * like taking copy for a pointer
+					//				//
+					
+ *   int *p; p=&a;    //here p has address of a
+ * int **p1;   //here we can assign only another pointer address
+ * *p1=&p   // p is normal pointer and we are saving its adress 
+  								//in another pointer
+				* so here *p1 has the adress of p
+				* and **p1 has adress of a
+*/
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+*if it is string it will print all those elements from 
+pointer started address .  // (0) 
+
+**Storage classes**
+
+1)Auto    //Default Storage class;
+2)Register // value will saved in Cache memory insted of Ram;
+3)Static //it set a static value for var when calling a funcion in same function(Recurtion);
+	 //static int a=3;
+ex:-	while(a>=0){
+		cout<<a<<endl;
+		a--;
+		main();
+	}
+
+4)Extern //using to extern a variable which declared out(and after) of the main function; 
+         //hint --extern int a;
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+**endl //to end the line
+**ends //to gave space between to words
+**gets(variable) //only for char strings[].
+**exit(0) //to end the programme.
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+**fstream
+ 1)ifstream //input(read) F stream.
+   syntax:-
+//////////////////////method one//////////////////
+    variable y[n]
+      ifstream anyname/*(x)*/("file name");
+    x.getline(variable,n); //for array string .
+       x.close();
+//////////////////////method two//////////////////
+	string h;
+	ifstream in("ax.txt");
+	while(in>>h){
+		cout<<h<<' ';
+}
+	in.close();
+--------------------------------------------------
+
+ 2)ofstream //output(wright) F stream.
+
+     string p="yup good";
+	ofstream x("New.txt");
+	x<<p;
+	x.close();
+
+ 3)fstream //input output(read and wright) F stream
+  //include header file (fstream)
+  //fstream x("Filename.extz",ios::mode/*in,out*/);
+
+////////////////////////////Total File Read///////////////////////////
+char file[100];
+    std::ifstream in("Ajay_Doc1.txt");
+   while( in.getline(file,100)){
+
+    std::cout<<file<<std::endl;}
+
+    in.close();
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+**fopen,fclose(used in C) //just for reference.
+  //Usage : to open and read files;
+  //similar to Fstream;
+  FILE *f;
+	 char *str;
+	f=fopen("New.txt","r");
+	
+	 fgets(str,1000,f);
+	 puts(str);
+	fclose(f);
+/////////////////////////////////////////////////////////////////////////////////////////
+
+**iomanip:-
+ 1)setw(n) // (    23) to gave space in empty place
+ 2)setprecision(n) // 1.12 (n digits after point)
+ 3)setfill('charectors') // xxx123 (to gave charectors in setw spaces)
+
+ 4)setbase //to convert numbers
+   setbase(8(octal))            //if n is octal gave 0
+   setbase(10(decimal))         
+   setbase(16(Hexadecimal))     //if n is hexaD gave 0x
+  
+ 5)setiosflags(mode)
+   setiosflags(ios::right )  //default of setw(n)
+   
+   setiosflags(ios::left)  //set the setw(n) gave the space after the charectors
+   
+  **number convertions** using setflags
+   setiosflags(ios::oct) <<n; //n converted to octal
+   setiosflags(ios::Hex) <<n; //n converted to hexadecimal
+   setiosflags(ios::dec) <<n; //n converted to decimal
+   setiosflags(ios::showpos) <<n; //to print positive(+) before n //+n
+                                  //doesn't work for -n
+   
+/////////////////////////////////////////////////////////////////////////////////////////
+
+**new and delete operaters**//to declare variable in Dynamic memory;
+
+systax ---> int *pointer=new dataType;//new return only a address so we store 
+                                        it on pointer.
+            pointer = values;        //To input values into declared variable.
+            delete[] pointer;        // at the last we should dlt the variable.
+EXP:-
+int *p=new int[10];//im taking this as x
+p[0]=1;//xth 0 index adress is saved in pointer p[0]
+cout<<*p<<endl;//now p is p[0] // p[0] has the adress of x[0] 
+				//so when printing *p(value) x[0] will printed
+cout<<p[0];
+delete[] p;
+--------------------------------------------------------------------------------------                    ///   ///  ///  11:10 PM 19-Apr-21.
+**continue** 9:36 PM 21-Apr-21
+
+	//similer to break but it will skip the loop only once .
+	//but break statement will skip the total loop.
+
+**Constant Variable**
+	//Declaration-->> Const Datatype Varriable_name;.
+	//or -->>add header as -->>#define variable_name value (without semicolon).
+	//can't change the value of constant variable after declaration;
+	//constants do not have memory location. 
+
+9:32 AM 22-Apr-21
+**Enum OR Enumaration data type**
+	//Declaration-->> enum name/*(x)*/{a,b,c,d...n};
+	//it will assing a intiger value to every member of x.
+	//Here a=1,b=a+1,c=b+1,..n.
+	//we can change the values of members of x.
+	//like a=n,b=n,c=n,...
+	//after declaring a variable of /*[x variable name]*/ //see 1 st line */ we can only use properties of x for assinging value. 
+
+**Union**
+	//similar to structure but it will share it's memory between the variable.
+	//Int = 4bytes,Char = 1 byte,Float = 4bytes.
+	//Which variable had more bytes only it had the value curenntly.
+	//Declaration -->>union union_name { variables }
+	//if i change the value of any variable to highest value only it had the variable space.
+	//used in yearly days to minimize the storage usage. 
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////**_ABSTRACTION_**///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////                   ///////////////////////////////////////////////////////////////////////////////////
+
+1)ABSTRACTION -->>
+	* Displaying only essential information to the user.
+	* Hiding inner details.
+	* or Hiding the inner proccess.
+	* Hiding the DATA HIDING PROCESS.
+
+2)Data ABSTRACTIION in Headder Files.
+	* We Know the the Headder file name only
+	* But what algorthm is in side of the headder file that we don't know. 
+
+/////////////////////////////////////////////////////////**_ENCAPSULATION_**///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////                   ///////////////////////////////////////////////////////////////////////////////////
+
+
+1)DATA HIDING + ABSTRACTION }----->> ENCAPSULATION.
+
+2)DATA HIDING -->> 
+	* Change datas from public to private using classes.
+	* So we public members can't access the data directly 
+ 	  but can do it by calling the member functions of the class.
+
+/////////////////////////////////////////////////////////**_INHERITANCE_**///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////                   ///////////////////////////////////////////////////////////////////////////////////
+
+1)INHERITANCE-->>
+
+	* Deriving Set of data's of one class, to another class.
+	* Acquiring the property of an existing class.
+	* Mainly Used for "CODE REUSABLITY". Or Software Reuse.
+
+2)Disadwantage-->>
+
+	* If i change the properties of parent class it will also affected in Derived class.
+	* Derived class can access public or protected members of base class.But base class can't access members of derived class.
+	* This is called the consept " Reverce is not true ".
+
+3)Types-->>
+
+	* Single Inhertitance
+	* Multi level Inheritance
+	* Multiple Inheritance
+	* Hierarchical Inheritance
+	* Hybrid Inheritance
+
+3.1)Single Inheritance-->>
+	* Only one Base class and only one Derived class.
+
+3.2)Multi Level Inheritance-->>
+
+	* Like Nesting in Classes.(But Not Constructing classes into another classes).
+	* But making a Derived class from another derived class.
+	* like-->> FATHER -->> SON 1 -->> SON 2 (SON OF SON 1)-->>SON 3 (SON OF SON 2) -->> SON 4 (SON OF SON3).
+	* Both son's and grand son had some inheritance from father.
+
+3.3)Multiple Inheritance-->>
+
+	* More than one Base class and single Derived class.
+	* Like -->> class FATHER ,class MOTHER -->> SON (Derived class).
+
+3.4)Hierarchical Inheritance-->>
+
+	* One base class and Many Derived class.
+	* But there is no connectivity Between the Derived classes.
+	* All of the dirived classes only Dirived from Base class.
+
+3.5)Hybrid Inheritance-->>
+
+	* Making a Dirived class from other Inheritance.
+	* Like Class FATHER,Class MOTHER -->> SON(Derived class)-->> SON 1(SON OF SON(base)) -- SON 2(SON OF BASE SON). (LIKE 2-->> 1 -->>2..)
+
+
+_________________________________________________________________________________________________________________________________
+final ->>>keyword
+--------------------------------------------------------------------------------------------------------------------------------
+	* If i gave the keyword final after class name when declaring,
+	* after that other class can't inherit that class.
+__________________________________________________________________________________________________________________________________
+Access Specifiers:-
+
+Public:-
+
+	* Members of the class can accessable from anyware.
+
+Protected:-
+
+	* Members of the class can't accessable in main function.
+	* Only can accessable from derived class.
+
+Private:-
+
+	* Members of the class can accessable only at class(this class).
+	* Can't access the memers of class from out of the class.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+TYPES OF INHERITANCE :-   //class cls_name : *PUBLIC* base_class {};  	//im taking access specifier as asp
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		        	Public Inherit       				  private Inherit					Proected Inherit
+
+Base class                 
+members asp			--------------------------< Availablity   of	Objects  	of 	Inherited 	class >------------------------------------
+
+
+Public				Public						  Private						Protected
+
+
+
+Protected		        Protected					  Private						Protected
+
+
+
+Private				always						  always						always
+				in accessable					  in accessable						in accessable
+
+
+Function 			Available in					  Available in						Available in
+Avaiablity			Derived class					  Derived class						Derived class
+
+										  (But can't call the function
+										   using it object,access available
+										   only at it body {here};)
+
+///////////////////////////////////////////////////////////////**_BINIDNG_**///////////////////////////////////////////////////////////////////////////////////
+
+1)DEFENITION :-
+
+	* For every function call,compiler binds or links the call to one function defenition.
+	* This linking can happen at 2 different time.
+		i) At the time of compiling.
+
+			* function call or binding based on return types, arguemnts and parameters.
+			* like overloading without any virtual keyword.
+			* like same function name but return types, arguemnts and parameters defer.
+			* but at the compiling time the compiler self define the ctr function.
+
+	       ii) At run time.
+
+			* function call or binding based on virtual keyword.
+			* But in run time binding we want to define the crt function using virtual keyword.
+			* so that the copiler bind the crt function by maping the virtual keywords.
+
+
+///////////////////////////////////////////////////////////////**_POLYMORPHSIM_**///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////                   ///////////////////////////////////////////////////////////////////////////////////
+
+1)The Name "POLYMORPHISM":-
+
+	* Combination if two Greek Words.
+	* The word "POLY" means MANY and "MORPHISM" means "FORMS/SHAPES". 
+2)Defenition:-
+
+	* Polymorphism is a important festure of OOPS concept.
+	* One thing can be represented in many forms.
+	* That thing can be anything like pointers or functions or classes.
+
+3)Example:-
+
+	* A woman behaves defer between her sister and her friends.
+
+4)POLYMORPHISM devide into:-
+
+	* i) static biding / compile time PMS(polimorphism) / Early binding :-
+
+
+	* ii) Dynamic Binding / Late Biding / Runtime PMS :-
+
+5)Example for PMS:-
+------------------------------------------------------------------------
+* i) static biding / compile time PMS(polimorphism) / Early binding :-
+------------------------------------------------------------------------
+FUNCTION OVERLOADING
+________________________________________________________________________
+
+#include <iostream>
+using namespace std;
+int a(int a){
+	return a*a;
+}
+float a(float a){
+	return a+a;
+}
+
+int main()
+{
+	int b=10;
+	float c=2.3;
+	
+	cout<<a(b)<<endl<<a(c);
+}
+------------------------------------------------------------------------
+Template Function overloading
+________________________________________________________________________
+	* This method is called as generic Programming
+
+#include <iostream>
+using namespace std;
+template <class T>
+T max(T a,T b,T c){		// Here insted of overloading the argument i just gave the created template name T 
+				// So the compiler know the correct argument(which i had passed in main function) 
+				// and the template will take the job of changing the datatype.
+	T max;
+	max=a;
+	if(b>max){
+		max=b;}
+	if(c>max){
+			max=c;}
+			return max;
+	}
+int main()
+{
+	cout<<max(10,30,20)<<endl;
+	cout<<max(10.5,20.2,25.9)<<endl;
+	cout<<max('z','b','a');
+}
+-------------------------------------------------------------------------------------------------------------------------
+1:21 PM 24-Jun-21
+----------------
+template <class T=int,typename T1,class T2>//here int used to restrict
+T max(T a,T1 b,T2 c){	
+	
+	cout<<a<<" "<<b<<" "<<c;
+	return 0;
+		}
+int main()
+{
+	cout<<max <int,double,float>(100.86,30.76,200.87f)<<endl;//here int used for type cast
+}
+
+------------------------------------------------------------------------
+* ii) Dynamic Binding / Late Biding / Runtime PMS :-
+------------------------------------------------------------------------
+VIRTUAL FUNCTIONS
+________________________________________________________________________
+1) Simple Example for VF :-
+
+#include <iostream>
+using namespace std;
+class base
+{
+	public :
+	
+virtual	void show()   //Check the programme without the keyword Virtual and without.
+ 
+	{
+	Base ::show();
+		cout<<"SHOW FROM BASE";
+	}
+};
+
+class derived : public base
+{
+	public :
+	void show()
+	{
+		cout<<"SHOW FROM DERIVED";
+	}
+};
+
+int main()
+{
+	base *p;
+	derived obj;
+	p=&obj;
+	p->show(); //// When calling a member functions or properties using a POINTER 
+                        we shoud use ARROW operater(->).
+}
+_______________________________________________________________________________________________________________________________________
+---------------------------------------------------------------------------------------------------------------------------------------
+* Same programme Using Pure virtual function:-
+
+#include  <iostream>
+using namespace std;
+class Players			// If i use pure virtual in this function It will turned into Abstract class.
+				// we can't creat objects for abstract classes.  
+				// only its derived classes can only creat objects but it can access the members of this class.
+				// Becauses it is a base (player) its types(player kohli,player dhoni)only can make its special objects.
+{
+	public:
+	virtual void ss() =0;  //pure virtual function.
+
+};
+
+class Dhoni : public Players
+{
+	public:
+	void ss()					// if i didn't use this virtualized function this class also turned into abstract class.
+	{
+		 cout<<"HELICOPTER SHOT "<<endl;
+	 }
+ };
+ 
+class Kholi : public Players 
+{
+	public:
+	void ss()
+	{
+		cout<<"AIROPLANE SHOT"<<endl;
+	}
+};
+
+int main() 
+{
+	Dhoni a;
+	Kholi b;
+	
+
+**Derived class pointer can't hold the address of Base class object**
+
+	Players* base1=&a;	// Player is base class so it is possible
+	Players* base2=&b;
+	
+	cout<<"Dhoni Special shot is ";
+	 base1->ss();
+	 cout<<"Kholi Special shot is ";
+	 base2->ss();
+	 
+	 return 0;
+	 
+ }
+---------------------------------------------------------------------------------------------------------------------------------------
+* function over ridding
+
+	* In the above Exmpl when I'm calling the member functions of derived class MF(Member functions) of Base class also
+	  will be there.But called the member function using the obj of Derived class.
+
+	* So that the MF of base class will be Over rided by the derived class.So the MF of Derived class only displyed.
+
+	* If we want to print MF of a base class,we should add [BASE::function name] in MF of DC(Deived class).   
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+________________________________________________________________________________________
+**In a function if there is a arguments than that the Function doesn't need return type.
+________________________________________________________________________________________--.
+//int class_name::static_MF_name=0;
+
+* static variable will be global variable.
+* and its value didn't change untill we change.
+* static member function.
+  to handle the static variables / manipulate the static variables. 
+
+#include <iostream>
+using namespace std;
+#include <string>
+ class a
+{
+	public :
+	static int rooms;
+	int length;
+	int breth;
+a (int i,int c)
+	{
+		length=i;
+		breth=c;
+		rooms++;
+	}
+	int rsize(){
+		return length*breth;
+	}
+	
+	static int roomsc()
+	{
+		return rooms;
+	}
+	~a()
+	{
+		cout<<endl<<" Object destructed ";  // Example for destructer;
+	}
+	
+};
+int a::rooms=0;
+
+int main()
+{
+	a r1(10,10);
+	a r2(20,20);
+	
+	cout<<r1.rsize()<<ends<<r2.rsize()<<ends<<a::roomsc();
+	
+ return 0;
+ }
+	 
+///////////////////////////////////////////////////////////////////////*_CONSTRUCTOR_*////////////////////////////////////////////////////////////////////////////////
+
+* Used to give values to the objects when declaring it
+  Whithout using dot operater. //1.0.
+* if you want defrent datatypes as a constructor paraeter u can just declare any datatype in the constructor..
+  example:-
+	class_name (int,string,char,ect...)
+ 
+* IT had't any return values. 
+* Example :-
+
+#include <iostream>
+using namespace std;
+#include <string>
+ class a
+{
+	public :
+	int b;
+	int d;
+a (int i,int c)
+	{
+		b=i;
+		d=c;
+	}
+};
+
+int main()
+{
+	a t(5,9);   // *** 1.0
+	 cout<<t.b<<ends<<t.d;
+ return 0;
+ }
+------------------------------------------------------------------------------------------------------------------------------------
+* Destructors:-
+
+* Declaration :-
+* should declare in the class
+
+	* ~Class_name() 
+{
+ messages
+ }
+
+* Usages :-
+
+	* To inform that the pre declared objects of class is destructed or deleted
+-------------------------------------------------------------------------------------------------------------------------------------
+_____________________________________________________________________________________________________________________________________
+*this-> pointer operater
+--------------------------------------------------------------------------------------------------------------------------------------
+
+* Usded to set the names of parameters and arguments of a member function and its properties variable names as same. 
+* like 2.0
+
+#include <iostream>
+using namespace std;
+#include <string>
+ class a
+{
+	public :
+	int length;
+	int breth;
+	string  z;
+a (int length,int breth,string z)  //2.0. Here arguments names and above variable names are same.
+	{
+
+		this-> length=length;
+		this-> breth=breth;
+		this-> z=z;
+		rooms++;
+	}
+	int rsize(){
+		return length*breth;
+	}
+		
+};
+
+int main()
+{
+	a r1(10,10,"sd");
+	
+	cout<<r1.rsize()<<ends<<r1.z;
+	
+ return 0;
+ }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+system("cls");  //insted of clrscr().
+
+/////////////////////////////////////////////////////////////////////////copy constructor and explicit////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <conio.h>
+//void display(complex x);
+using namespace std;
+
+class complex {
+	public :
+	int real,old;
+	
+//	public :
+	explicit complex (int a=0,int b=0){       // if i didn't put explicit here it(goto 1.0) will make a new object
+		real =a;
+		old =b;
+	}
+   complex (const complex &x){  ///////////  copy constructure //////////////////////////////////////////////////////////////////
+	   real=x.real;
+	   old=x.old;
+   }
+};
+void display(complex x){
+   cout<<x.real<<"+"<<x.old<<"i"<<endl;
+   }
+int main(){
+
+    complex d(3,4);
+  complex c=d;
+// display(10);                                             //      (1.0):
+	return 0;
+}
+----------------------------------------------Freind function------------------------------------------------
+*Defenition:-
+
+	* A FRIEND function of a class is defined outside of that class' scop but is has the rights to access
+	  all private and protected members of the class.
+
+	* Friend functioin are not member function.
+
+	* If i want acces the private or protected members of a class,i should declare the function as friend
+ 	  of my class.
+
+	* To use the friend functoion just we want declare the friend function in the class first.
+
+	* Function definition can be right anyware.
+
+-----------------------------------------------------------------------------------------------------------
+
+////////////////////////////////////////////operater overloading/////////////////////////////////////////////
+
+Definition:-
+
+	* When i use any operator(+,-,++,--...ect) with any normal variables compiler know that what to do with that operator like addion subtraction.
+
+	* But when i use operator with use defined variable(class) compiler didn't know that what to do.
+
+	* So we declare a operator function which is calld as operator overloader.
+
+	* Normally we define a operator overloader as a member function.But when we calling io stream operators(cin>>,cout<<) We declare OO(Operator Overloader) as
+	  a FRIEND function.
+
+	* Becaus that the this operator points that first entered variable (cin or cout) // Cin and Cout also a variable or object of a class that istream(cin) &
+	  (osream)cout. 
+
+Examples:-
+
+#include <iostream>
+using namespace std;
+class d{
+	int f,q;
+	
+	public :
+	d(){}				// Empty constructor;
+	d(int a,int b){f=a;q=b;}	// Constructor;
+
+	void display(){					//normal member function to print the values
+		cout<<endl<<f<<" "<<q; }
+
+	friend 	istream	&operator>>(istream &input,d &a ){  //operator overloader for cin. Here this poiter pointes the cin so we should declare function as friend. 
+							    //Here return type is istream.But we want only return preference of it so we gave & after reurn type.
+							    //Inbuilt function desizned like that so we also code like that.
+
+							    //cin is a object or variable of a inbuilt class istream so we use istream as a argument.
+							    //we cant copy the objects of istream,but we can creat preference of istream. so we use &input. 
+							    //we want to change the value of that object not its copy so we use &a.
+			input>>a.f>>a.q;
+			return input;
+	}
+
+
+friend ostream &operator <<(ostream &output,d &b);  	  //Friend function declaraion
+
+							  // operator overloader as a member function
+	void operator--(int){				  // operator overloader for decrementer operator
+		f--;					  // here we don't want to return anything just we want to decrement the values of objects
+		q--;					  // so the return type is void
+	}
+	void operator--(){
+		--f;
+		--q;
+	}
+
+		d operator*(d o){			// operator overloader for * (into-x) operator 
+							// we want to return a value of the same class which the 2 variables had. so the return type is class name
+		d a;					// declaring a new variable for have the multiplied value. //same class variable		
+		a.f=f * o.f;				// multiplying value of first propertie or member variable (F).
+		a.q=q * o.q;				// multiplying value of q. // a.q = (k.q) x (j.q) //here this pointer points the variable k
+							// so we dont need to gave k.q. // just gave  q.
+						 	// o points the variable j. // so we gave o.q insted of j.q. 
+		return a;
+	}
+};
+ostream &operator <<(ostream &output,d &b){		 //operator oveloader for cout<<.  (cout is a object of a class ostream) 
+			output<<b.f<<" "<<b.q;
+			return output;
+		}
+int main(){
+	system("color 7C");
+	d k,j;
+	cin>>k>>j;
+	k--;
+	--k;
+	cout<<k<<"  "<<j;
+}
+
+/////////////////////////////////////////////////////////////
+conditional operators in return 
+___________________________________________________________________________________________________________________________________
+-----------------------------------------------------------------------------------------------------------------------------------
+Dangling Reference :-     										        7:30 PM 19-May-21
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Defenition with example:-
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int& sf();				// Function declaration.
+int main(){
+	system("color 7C");
+	//int x;
+	//x=sf();
+	cout<<sf();			// Here im trying to print preference of 'a'.
+					// But the scop of 'a' ended at 1.0.
+					// So the compiler can't find the a. // This eror is called as Dangling eror.
+					// If i want a here it should be declared as static variable.
+}
+int& sf(){				// Here i want to return preference of 'a'.Thats why use &.
+	int a=10;
+	return a;			// Here im returning preference of 'a'; 
+}				//1.0
+
+-----------------------------------------------------------------------------------------------------------------------------------
+___________________________________________________________________________________________________________________________________
+Exception Handling wtih example:-
+-------------------------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+int main(){
+	system("color 7A");
+	int a,b;
+	cin>>a>>b;
+	try{				//try is keyword	// nesting in try is available		
+		
+		if(b==0)
+			throw "Divided by 0 error";
+		else if(b==1)
+			throw 1;
+		else if(b==2)
+			throw 8.5;		//float value throw
+		cout<<a/b<<endl;
+}
+catch (const char* aa){			//throw is const & this only can do with char arr & only it referece can pass.
+	cout<<aa;}
+catch (int k){
+	cout<<a;
+}
+catch(...){
+	cout<<"Default catcher"<<endl;
+}
+	cout<<endl<<"Programme completed";
+	
+}
+-----------------------------------
+ char input[100];
+    try{
+
+    std::ifstream in("staf_info.txt");
+
+    if(!(in)){throw 1;}
+    while(in.getline(input,100)){
+        std::cout<<input<<std::endl;
+    }
+
+    in.close();
+    } catch(...){std::cout<<"file not exist";}
+
+---------------------------------------------------------------------------
+RANGE LOOP 0R Foreach Loop
+---------------------------------------------------------------------------
+Defenition :-
+
+	* It will print all elements of a number array
+Declaration:-
+
+	* for(auto n: arra_name){cout<<n;} //try int insted of auto
+Example:-
+
+ std::cout<<"8th Table :-\n";
+    for(int i:{8,16,24,32,40,48,56,64,72,80}){
+        std::cout<<i<<" "<<std::endl;
+    }
+____________________________________________________________________________
+/////////////////////////////////////////////////////////////////////////VECTORS////////////////////////////////////////////////////////////////////
+Defintion:-
+
+	* Vector is a collection of objects of same type which is mentioned in declaration.
+	* Usually called as "CONTAINER".
+	* Vector is a class template.
+	* when we declaring the vector one array will created and after we don push_back(),
+	* it size will grow up to size()*2 //ex 5elemnts after pushback it turn do 10sized array
+	* usualy if we dont know the size when compile time we creat vector
+
+Push_back:-
+
+	* Vector_name.push_back(n);
+	* if we use pushback function the number n is added in the last of vector.
+	* we can print like n[i] but we cant use it to add new number in this vector.
+	* is we gave v1=v2 all ements of v2 will copied to v1.
+	
+mainly using functions:-  //use Dot(.) operater
+
+	* push_back()
+	* pop_back()
+	* empty()	// return true if vector is empty
+
+	* resize()	//resize the vector or crop the vector
+	* front() and back() //first element and last element
+	* swap()
+	* begin() end()	//it will return iterator which is similer to pointer
+	
+	* insert(address_itrt,value) //we can also insert values using initializer list {n,n,n..n}
+	    * insert(itrt,copies_n,value) // value, value ,..n
+	    * insert(itrt_of1vec, vec1.begin(),vec2.begin())	// to copie another vector 
+
+	* emplace(iterat_for_pos,values) // to insert value in which place we want
+
+	* emplace_back() // when using this in class which had copy consructor and initializer constructor
+		// it won't call constructor but it will directly assign the obj in the arr//(vector<class_objArray>)
+
+	* clear()	//delete all elements
+	* erase(starting_itrt,ending_itr)	// sent posistion using iterator
+
+	* at()	// similer to [] operator but if we access after null value it will throw execption
+	* capacity()	// total capacity of the vector
+	* size() 	// similer to length
+	* reserve(n); // to change the capcity of the vector to n
+
+//// to catch ezception
+catch(exception& e)
+
+declaration:-
+
+	* vector<data_type> name{elements};
+	* vector<T> name(size);
+	* vector<int> v1(6,3);	//here 6 elements and all are 3
+
+vector<int> a={1,2,3,4,5,6,7};
+	auto b=a.begin();	//its return a iterator pointer so the data type is auto
+				//vector<int>::iterator b
+	 while(b!=a.end()){
+		cout<<*b<<" ";		//values of poniter can only accessd b * operator.
+		 b++;
+		 
+		 }
+--------------------------------------------------------------------------------------------------------------------------
+Stack implementation :-
+
+Definition:
+	* First in first out.
+
+Script:-	//stack class creating using vector arrays
+	* if i call the function push() new element want to add in last pos.
+	* if i call the function pop() the last element want to print after delete.
+	* if i call the function top() the last element want to print.
+
+example:-
+
+#include <iostream>
+#include <vector>
+using namespace std;
+class Vector{
+	vector<int> v;
+	public :
+	void push(int a){
+		v.push_back(a);
+		}
+	int top(){
+		if(v.size()!=0){
+			return v[v.size()-1];}
+			else
+			return 0;
+		}
+		int pop(){
+			int e=top();
+			v.pop_back();
+			return e;
+			}
+	
+	};
+int main(){
+	Vector v1;
+	v1.push(100);
+	v1.push(200);
+	v1.push(300);
+	
+	cout<<v1.pop()<<" "<<v1.pop()<<" ";
+	cout<<v1.top();
+
+vector<int> v1(6,3);		//here 6 elements and all are 3
+for(auto i:v1){
+cout<<i<<" ";}
+}
+
+
+
+//////////////////////float 
+* datypes want add prefix f like.. float a=87787f;
+
+////////////////////////////////////////////// wchar_t /////////////////////////////////////////////////
+Example :-
+
+	*	wchar_t a=L'A';
+		cout<<a;	//65
+_________________________________________________________________________________________________________
+/////////////////////////////////////////////// typedef /////////////////////////////////////////////////
+Declaration:-
+
+	* typedef current_name_of_data_type new_name_for_data_type
+Exmaple:-
+
+	*   typedef int h;	// here we define other name(h) for int 	 
+		 h a=12345678;	// here h means int
+		cout<<a;
+___________________________________________________________________________________________________________
+
+//////////////////////signed & unsigned
+
+//////////////////////////////////////////////// cout ///////////////////////////////////////
+\b --> backspace
+\a --> alert sound
+\v --> vertival tab  (♂)
+\r --> Carriage return 	// move the cursor to the stating point of consol
+\f --> landscap tb (♀)	
+_____________________________________________________________________________________________________________
+////////////////////////////////////////////math.h/////////////////////////////////////////
+to find power = pow(base,exponent);
+to find spuar root = sqrt(n);
+______________________________________________________________________________________________________________
+//////////////////////iterators
+
+
+______________________________________________________________________________________________________________
+//////////////////////member initializer
+#include <iostream>
+#include <string>
+using namespace std;
+class exm{
+	protected :
+	string name;
+	int age;
+	public :
+	exm(){};
+	exm(string a,int b){name=a;age=b;}
+	
+	friend ostream& operator<<(ostream& output,exm& d ){
+		output<<d.name<<" "<<d.age;
+		return output;
+		}
+	
+	};
+class b : public exm{
+	int no;
+	public :
+		b(string a1,int a2,int a3) : exm(a1,a2) 	////member isializer
+		{		no=a3;}
+	void display(){
+		cout<<name<<" "<<age<<" "<<no;}
+	};	
+int main()
+{
+	exm expl1("M ",18);
+	b exmpl2("Ajay ",18,9488);
+exmpl2.display();
+}
+_____________________________________________________________________________________________________________________________
+
+//////////////////////////////////move the cursor to starting point of the console//////////////////////////////////////////
+Header --> #include <windows.h>
+
+ SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),{0,0});
+______________________________________________________________________________________________________________________________
+/////////////////////////////////// sleep(seconds); //////////////////////////////////////////////////////////////////////////
+
+consol will sleep for some seconds.	//1*60 = 1minute
+_______________________________________________________________________________________________________________________________
+////////////////////////////////////string stream//////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <sstream>
+#include <string>
+int main(){
+	system("color 7A");
+int a=10; 					
+std::string b="1";			//converting b to int
+std::stringstream ss;
+ss<<b;
+int b1;
+ss>>b1;
+std::cout<<a+b1<<std::endl;
+
+ std::stringstream ss2;			//converting a to stirng
+ ss2<<a;
+ std::string a1;
+ ss2>>a1;
+ std::cout<<a1+b;
+}
+____________________________________________________________________________________________________
+----------------------------------------------------------------------------------------------------
+if (std::cin.fail()){std::cout<<"Enter Integer only!!";pass();}
+
+ 
+_____________________________________________________________________________________________________
+
+
+system("pause");
+-----------------------------------------------------------------------------------------------------
+
+
+char pwd[5];
+	cout<<"                    PASSWORD:";
+	while(i<4)	
+	{
+		pwd[i]=getch();
+		putchar('*');
+		++i;
+	}
+
+password enter until enter button pressed
+
+char ch[50];
+       int i=0;
+
+      while(ch[i-1]!=13){
+        ch[i]=getch();
+        cout<<"*";
+        i++;
+      }
+
+-------------------------------------------------------------------------------------------------------
+
+3:23 PM 08-Jul-21
+Gotoxy function:-
+
+#include <iostream>
+#include <windows.h>
+using namespace std;
+void gotoxy(int x,int y){ system("color 7A");
+    COORD coord;
+    coord.X=x;
+    coord.Y=y;
+
+  HANDLE handl=GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorPosition(handl,coord);
+
+   //or
+   // SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+
+}
+int main(){
+    gotoxy(30,30);
+    cout<<"Gotoxy Working perfectly :)";
+}
+
+
+-------------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <windows.h>
+#include <conio.h>
+#include <iomanip>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+    system("color 7A");
+
+    fstream out("New.txt",ios::out);
+    out.setf(ios::left);
+    out<<setw(10)<<"Setw";out<<"Checking\n";
+
+    out<<setw(10)<<"Setwwer";out<<"Checking\n";
+    out.close();
+}
+-------------------------------------------------------------------------------------------------------
+* if you use atoi for array it will print all of charector in the as int  
+* if you use it like atoi[arr[n]] it will convert all the charectors from n
+----------------------------------------------------------------------------
+* any odd  number & 1 ==1;
+---------------------------
+Lamda Funtions:-
+
+#include <iostream>
+#include <string>
+using namespace std;
+int main(){ system("color 72");
+		
+		    // You Can also give any other data type liike int float 
+	auto a=[] ( auto n,auto p) { return n+p;};
+	int c=5,b=5;
+	string g="Ajay ",h="Kumar";
+	cout<<a(c,b)<<endl;
+	cout<<a(g,h);
+}
+
+-------------------------------------------------------------------------------------------------
+		******************Adwance Topics in C++********************
+-------------------------------------------------------------------------------------------------
+Coverd Topics:-
+---------------
+1)  Order of Constructor and Destructor
+2)  Diamond Inheritance:-
+3)  Namespace
+4)  Upcasting Downcasting
+5)  Type casting 
+6)  Standard Template Library (STL1 overview) 
+7)  Sequence Container (STL1 Seq) 
+8)  Associative Container
+9)  Unordered Set & Unordered Map
+
+STL Algorithms
+
+10) Iterators
+11) on - Modifying Algorithm 1
+12) NON Modifying Algorithms 2
+13) Modifying Algorithms
+
+// lambda functions
+// pair keyword
+
+11:01 PM 27-Jun-21
+--------------------------------------------------------------------------------------
+**Generic Lambda functions:-
+
+	* Syntax: type_name name= [] (parameters){expressions};
+Example:-
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{system("color 7A");
+    auto add=[] (auto b,auto c){return b+c;};
+    cout<<add(2,3)<<endl;
+
+    string aj="Ajay ",ku="Kumar";
+    cout<<add(aj,ku)<<endl;
+	return 0;
+ }
+--------------------------------------------------------------------------------------
+2) Diamond Problem in Inheritance:-
+
+//Diamond Inheritance Problem
+/*		Inherit Like
+		     A
+		   /   \
+	    	  B     C
+		   \   /
+		     D
+*/
+#include <iostream>	
+using namespace std;
+class A { public :  int a;};	//a
+	
+class B:/*virtual*/ public A {  public: int b;	}; //a , b			
+class C:/*virtual*/ public A {	public: int c; 	}; // a , c
+
+class D: public B,public C{public: int d;}; //a,b  ,a,c
+			//here we have 2 a in d .so it will show error
+		   // so give virtual before inheriting
+ main()
+ { system ("color 7A");
+	D e;
+	e.a=10;//after gaving virtual in front of inheriting A
+					// e.a was available
+	cout<<e.a;
+ }
+__________________________________________________________________________
+3) NameSpace:-
+-----------
+Simple Test:-
+
+#include <iostream>	
+//using namespace std;
+ main()
+ { system ("color 7A");
+	using namespace std;
+	cout<<"Working";
+ }
+void check(){
+	cout<<"Name space not available";
+	}
+----------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+namespace ThirdPartyFunction{ void check();}
+
+int main()
+ { system ("color 7A");
+
+	ThirdPartyFunction::check();
+ }
+
+ namespace ThirdPartyFunction{
+void check(){
+	cout<<"Name space available";
+	}
+ }
+----------------------------------------------------------------------
+Test 2:-
+#include <iostream>	
+using namespace std;
+namespace First{
+void check(){
+	cout<<"First Name Space\n";
+	}
+ }
+
+ namespace Second{
+ void check(int a){	//if function has same name also doesn't work 
+			//until using the namespace
+	 cout<<"Second Name Space\n";
+}
+}
+
+using namespace First;// First Namespace will be called
+using namespace Second;// Second Namespace will be called
+ int main(){
+	 check();
+	check(5);
+	// when calling First and Second Namespace at the same time
+	// it makes error because here we have double(2) check()
+	 system ("color 7A");	
+ }
+------------------------------------------------------------------------
+Test 3:-
+#include <iostream>	
+using namespace std;
+ // namespace block
+namespace First{
+	// class block 
+	class A_check
+	{
+      public :
+      // function block
+         void check(){ cout<<"First Name Space\n"; } // F_B
+     }; // c_b
+ } // ns_b
+//using namespace First;
+ int main(){ First::A_check test1;
+	 test1.check();
+	 system ("color 7A");	
+ }
+__________________________________________________________________________
+Object Slicing:-
+	* When the derived class object assigned to base class object
+	* then extra attributes from the derived class will be deleted
+
+4) Upcasting downcasting:-
+    upcasting :-
+	* If base class pointer hold's address of Derived class object
+	  it is called upcasting.
+
+    Downcasting :-
+	* If Derived class pointer hold's address of Base class object
+	  it is called downcasting.
+
+C++ Doesn't Support *implicit* Downcasting in Default:-
+        **Derived class pointer can't hold the address of Base class object
+	 * until i cast it explicitly
+__________________________________________________________________________
+4:03 PM 28-Jun-21
+
+* A cast operator is an unary operator which forcers one data converted to another
+ data type
+
+4) Types of casting:-
+	* const_cast<typename*>(pointer)
+	* static_cast<int>(variable_name)
+	* dynamic_cast<>
+	* reintrpret_cast<>
+
+4.1)
+/* ****Const_Cas******
+ 
+ * Const cast is used to remove the const'ness of a *pointer* 
+ * it also used to remove the volatile'ness
+ */
+#include <iostream>	
+using namespace std;
+ int main(){ 
+	const  int a=10;	//creating a variable 
+	const int* p=&a;	// saving address of ' a ' in poniter p
+				// *pointer have a and p have adress of a
+	//*p=50;	// here *p and p also const so we can't change both
+						
+			//p must be the pointer		
+	int* b=const_cast<int*>(p);	
+		// Here we are removing the const'ness of pointer
+		 	// p have address of a so now we have address of a in b
+			// we can't save p into p until it is const
+	 
+	// here a is constant so we cannot change a 
+	//but when we assign like this value of pointer will change 
+	// and value of a will not change
+	//but it is a error.we dont do like that
+	//**if a is not constant we will not face this problem
+	*b=20000;
+	
+	 cout<<"a : "<<a<<endl<<"value of p pointer : "
+		<<*p<<endl<<"value of b pointer : "<<*b;
+	 system ("color 7A");	
+ }
+------------------------------------------------------------------------
+#include <iostream>	
+void anyThirdPartyFunction(int*);
+using namespace std;
+ int main(){ system ("color 7A");	
+	 
+	const int a=10;	//creating a variable 
+	const int* p=&a;	// creating pointer for it
+	
+	anyThirdPartyFunction(const_cast<int*>(p));
+	// function is getting non constant pointer
+	// if i hadn't done const casting 
+	// it wont work 
+	// Note : But the function would not change the values
+	// of pointer which is passing by the function
+ }
+	//a fuction that getting non constant pointer
+void anyThirdPartyFunction(int* X){	
+	
+	cout<<10*(*X);	//10 x value of X //100
+	
+	}
+__________________________________________________________________________
+4.2) static_cast :-
+	* point1 : we can use it as note. if we doing implicit casting
+	  in programme it is hard to find where we done it
+	* so if we gave static_cast like a key word it is eacy to search
+	
+	* use for compatible type convertion like float to int
+	* to avoid related type convertion like char to int
+	* to avoid derived to private base class pointer convertion
+	* use for only upcast and not for down cast in inheritance
+	* error found at run time
+
+Exmpl 1:-
+
+#include <iostream>	
+using namespace std;
+class Test{
+	int i=0;
+ public : Test(int k=0) : i(k)  {cout<<"1 parameter Constructor called"<<endl;}
+	
+	operator string(){	cout<<"constructor operator called "<<endl;
+		return to_string(i);  }
+	};
+	
+ int main(){ system ("color 7A");	
+	 Test obj(10); 
+	 
+	 string s=obj; //here we know that obj will return a string 
+		//which is converted to from a int
+		// so do it like
+	//string s2=static_cast<string>(obj);
+		
+	obj=static_cast<int>(20);
+
+	//it won't make any changes but it will help to understand
+	// what is happening here
+	
+ }
+-------------------------------------------------------------------------
+Exmp 2:-
+ int main(){ system ("color 7A");	
+	
+	 int a=5;
+	int b=2;
+	 float j=static_cast<float>(a)/b; //(a/b) only produce int
+	 //float j=(float) a/b;  //normal explicit casting
+	cout<<j;//2.5
+ }
+--------------------------------------------------------------------------
+Exmp 3:-
+		char a;
+//	int* p=(int*)&a;	//here a is char which has only 1 byte of memory
+	*p='a';		//but p is integer which has 4byte of memory
+	cout<<a;	// a will use 2,3,4th bytes of p it makes error 
+			//but when we casting in c style it will allow to compile
+			//it was a dissadwantage of c-tyle casting
+	
+int* p2=static_cast<int*>(&a);	//when we casting in static it will show error msg
+--------------------------------------------------------------------------	 
+#include <iostream>
+using namespace std;
+class Base{public:  void test(){cout<<"base";} };;
+class Derived: private Base{public: void test(){cout<<"derived";} };
+
+ int main(){ system ("color 7A");
+
+	Derived d1;
+	Base* t2=(Base*)&d1; //here we inherted d1 as *private*
+				//but here im creating a pointer for derived
+				//and saving address of base which is wrong
+				//we cannot cast base to derived until base as,
+                  //Derived privately
+				//static cast won't allow it
+                //implicit cast(no casting manually)works properly
+
+t2->test();//this will working normally even derived privately
+
+Base* t3=static_cast<Base*>(&d1);//it showing Base is private here
+
+ t3->test();
+ return 0;
+ }
+--------------------------------------------------------------------------
+Examp 5:-
+
+#include <iostream>	
+using namespace std;
+ int main(){ system ("color 7A");	
+	int a=10;
+	
+	void* ptr=static_cast<void*>(&a);//here cast is not nessosry but 
+					//it helps to find comple time error
+
+	int* p=static_cast<int*>(ptr);//before converting void pointer 
+					//to another pointer we should type cast 
+					//it is better to use static cast 
+	cout<<*p;
+ }
+__________________________________________________________________________
+3) dynamic_cast:-
+-----------------
+
+#include <iostream>	
+using namespace std;
+
+class Base{	
+	    /*
+	     * atleat 1 virtual function is needed to to use dynamic cast
+	     * else it will show source type is not polymorphic	  
+	     */
+	public: virtual void print(){cout<<"Base Class ";}	};
+	
+	class Derived1: public Base{ public:
+		void print(){cout<<"Derived1 Class";}	};
+	class Derived2: public Base{ public:
+		void print(){cout<<"Derived2 Class";}  };
+
+ int main(){ system ("color 7A");	
+	 /*Sysntax : dynnamic_cast<new_type>(expression);
+	  * dynamic cast is used for maintain proper upcast and downcast
+	  * it is used at run time to find correct down cast
+	  * need atleast 1 virtual class
+	  * this is run time overloaded
+	  * not like static_cast
+	  * 
+	  
+	  * i) if casting is success it will return *new_type*
+	  
+		
+	  * ii) if casting fails it returns a null pointer of pointer name_type
+	      * (if new_type is pointer(*))
+	     
+	  * iii) if casting fails its throws an exception that matches handler
+		* of type std::bad_cast 
+			* (if it is reference type(&) )
+	  */
+		//i)
+		Derived1 d1;
+		//upcasted
+		Base *bp=dynamic_cast<Base*>(&d1);
+		
+		//perfect downcast
+		Derived1 *d1p=dynamic_cast<Derived1*>(bp);
+		d1p->print();
+		///////////////////// i)
+		
+		/*ii)
+		Derived2 *d2p=dynamic_cast<Derived2*>(bp);
+		if(d2p==nullptr) cout<<"Null in d2p"; /**
+		else cout<<"Not Null";
+		*/
+		
+		/*iii) 
+		try{
+		Derived2 &d2ref=dynamic_cast<Derived2&>(d1); }
+
+		catch(exception& e){cout<<"Exeption Throwed";
+			//or cout<<e.what();//#include(eception)} 
+		*/
+ }
+
+
+11:00 PM 28-Jun-21
+__________________________________________________________________________
+3) reinterpret_cast<new_type>(expression)
+-----------------------------------------
+//non portable product
+//need to use very carfuly
+//where dont use it
+
+#include <iostream>	
+using namespace std;
+/* reinterpret_cast<new_type>(expression)
+ * it can perform dangerous convertion
+ * because it can convert any pointer to other pointer
+ */
+
+class Banana{ public:
+		void print(){cout<<"Banana Class";}	};	
+class Mango{ public:
+		void print(){cout<<"Mango Class";}  };
+
+
+ int main(){ system ("color 7A");	
+	 //case 1:
+	 // creating pointers for Banana and Mango
+
+	//Banana *BanaObj1=new Banana();
+	Mango *MangoObj1=new Mango();
+	
+	  /* here we are saving the address of MangoObj,
+	   * in BananaObjForMango but when we caling a  function 
+	   * using BananaObjectForMango it is calling Banana
+	   * it was one of the miss behave of the reinterpreter
+	   */
+   Banana *BananaObjForMango
+	     =reinterpret_cast<Banana*>(MangoObj1);
+	  BananaObjForMango->print();
+ }
+--------------------------------------------------------------------------
+12:51 AM 29-Jun-21
+#include <iostream>	
+using namespace std;
+struct Check{
+	//bytes
+	//4   +   4    +  1    +  4
+	int a; int b; char c; int d; };
+	
+ int main(){ system ("color 7A");	
+	 
+	 Check c1;	//creating object for Check
+	 c1.a=10; c1.b=50;  c1.c='a'; c1.d=90;
+	 
+	 //type casting c1 into int pointer
+	 int *p=reinterpret_cast<int*>(&c1);
+
+	 cout<<*p<<endl;  //4byte //10
+	 p++;
+	 cout<<*p<<endl; //4byte //50
+	 p++;
+	 //changing one bit type and char convertion
+	 char* c=reinterpret_cast<char*>(p);
+	 cout<<*c<<endl;//1 byte //a
+	 //p++;
+	 int * d=reinterpret_cast<int*>(c);
+	 cout<<*(++d)<<endl;//1byte //1
+ }
+____________________________________________________________________________________
+std::array :-
+
+	* Syntax std::array int <data_type,n> array_name
+	  Expl : std::array<int,4> a={2,3,4,5};
+
+	* std::array is a container that encapsulate fixed size arrays
+	  * what it means is std::array is a predefined class with encapsulated
+
+	* std::array size needed at compile time
+	  * user can't decide the size of array here.it was const variable
+
+	* if you pass Cstyle arr to a function only its pointer will go
+	  * and its some informations like size, will lose it is called *Decay*
+	  * but when you passing std::array its copy only go (Passing by value)
+	  * and it's informations wont lost
+
+Access Elements:-
+
+	* There is five vays to access the value of std::array
+	* [] //Ctype accessing
+
+	* .at() // similer to give me *[nth]* number 
+	  * but it will throw error (out of bound) if you access null value
+
+	* front() and back() //similer to begin() and end()
+
+	* you can initialize like std::array<int,n> array_name;
+	  * array_name={variables};
+	  * but in Cstyle array can't initialized like this
+	* fill(n)	//all the elements of the array will be n //n n n ... n
+
+
+___________________________________________________________________________________
+2:39 PM 29-Jun-21
+-----------------
+************************************* STL *****************************************
+*******************Standard---------Template--------------Library******************
+***********************************************************************************
+Introduction:-
+	* STL = Containers + Algorithms + Iterators
+	* It is a library
+	* It separates Datas Store and Data Manipulations
+
+	* In general programming we have 
+	** Data Store ** and ** Data manipulation **
+	* Our functions access data stores directly
+
+	* In STL data stores are called *container*
+	* and DataManipulations called *Algorithms*
+	* But these two don't talk to each other 
+	* There is somthing calle *Iterators* in Between them
+	* Algorithms work on Iterators
+	* And Iterators talk to Containers
+
+	* In STL containers store the Data
+	* Data which is stored in containers accessed by Iterators
+	* Algorithms (sort, reverse etc) work on Iterators
+
+Containers of STL:-
+------------------
+	 i) Sequence Containers
+		* Store Elements in sequance
+	ii) Associative containers
+		* Store Elements in Key value Pair
+
+ i) Sequence Containers :-
+	* Vectors
+	* Deque
+	* List
+	* Forward_list
+	
+
+ii) Associative Containers :-
+  **Ordered in Sort:-
+	* Set	//not allow copies
+	* Multiset
+	* Map	//not allow copies
+	* Multimap
+
+  **Unordered :-
+	* unordered_map
+	* unordered_multimmap
+	* unordered_set
+	* unordered_multiset
+--------------------------------------------------------------------------------------
+Some Common functions:-  // which is work in Vectors, Set, list...
+
+	* push_back()	//not work in set
+	* pop_back()
+	* empty()	// return true if vector is empty
+
+	* container.resize(n)	//resize the vector or crop the vector
+	* front() and back() //first element and last element
+	* swap(container1,container2)
+	* begin() end()	//it will return iterator which is similer to pointer
+	* vector<int> v{7,6,5,4,3,2,1,8,9,10,};
+    	  * cout<<*(v.begin()+1)<<endl;//begin is 7 and begin+ 1 is 6	
+		
+	* insert(address_itrt,value) //we can also insert values using initializer list {n,n,n..n}
+	    * insert(itrt,copies_n,value) // value, value ,..n
+	    * insert(itrt_of1vec, vec1.begin(),vec2.begin())	// to copie another vector 
+
+	* emplace(iterat_for_pos,values) // to insert value in which place we want
+
+	* emplace_back() // when using this in class which had copy consructor and initializer constructor
+		// it won't call constructor but it will directly assign the obj in the arr//(vector<class_objArray>)
+		// it won't make any diffrence in primive data types 
+
+	* clear()	//delete all elements
+	* erase(starting_itrt,ending_itr)	// sent posistion using iterator
+
+	* at()	// similer to [] operator but if we access after null value it will throw execption
+	* capacity()	// total capacity of the vector
+	* size() 	// similer to length
+	* reserve(n); // to change the capcity of the vector to n
+--------------------------------------------------------------------------------------
+Some Common Things:-
+	* You can use above funcion in many of this Containers
+	* you can initialize the values using Initializer list after declaring the
+	  container like : container_namer<type_name> name; name={n,n,n..n};
+	* greater<> or lessthan<> in some Associative containers
+	* All the cotainers support emplace and insert function operation to store
+
+--------------------------------------------------------------------------------------
+    ************************* Associative Containers ***************************
+       *********************************************************************
+**1)Set:-
+  -------
+	* Unique + ordered
+	* Set is a sorted set of unique values
+	* It won't allow copies or Duplicates
+	* It i usually implemented in Red-Black Tree
+	* If we want to store user defined data types in set
+	  * than we will privide comparstor so that the set can store the
+	  * the items in sorted order
+	* Syntax: set<type_name,sort_order/*if we want*/> set_name;
+	  * sort_order in default is Assending
+	  * if we want to change it use std::greater<>(Decending)
+	  * 0r std::lessthan<>(Assending) //which is default
+	  * include <functional> as headder to use comparator
+
+Simple Example:-	
+	set<int> Set{8,7,1,1,2,2,3,3,4,4,5,5};
+ 	//1,2,3,4,5,7,8
+Example 2:-
+
+#include <iostream>
+#include <set>
+using namespace std;
+// simple class
+class Prize{public :
+    int value;
+    string name;
+     Prize(int value,string name){this->value=value;this->name=name;}
+
+//comperator function:-
+
+//set class will call this function
+//we are just telling which value of ours had high priority
+
+// if our object value is less than others ,return true;
+// less than which is default Assending
+//////////////////////////////////////////////////////////////////
+ bool operator<(const Prize& rhs) const {return value<rhs.value;}
+//////////////////////////////////////////////////////////////////
+
+// if value of our object is greater than others, return true;
+// greater than / Decending order
+/////////////////////////////////////////////////////////////////
+ bool operator>(const Prize& rhs) const {return value>rhs.value;}
+/////////////////////////////////////////////////////////////////
+};
+
+ int main(){ system ("color 7A");
+
+ //creating a set of Prize(userDefined.class)
+ //and setting the sorting in Decending
+ set<Prize,std::greater<Prize>> Prizes;
+
+ //creating and adding object in the set
+ Prizes={ {100,"Gold"} ,{50,"Silver"} ,{25,"Bronze"} };
+Prizes.insert(Prizes.end(),{20,"Plastic"});
+
+
+//Prizes.insert(Prizes.end(),{50,"Silver2"});
+//set will delete this copy But MultiSet doesn't
+// if our comparetor is equal set will delelete that copy
+
+ //iterating the set
+ for(auto i:Prizes){
+    cout<<i.value<<" "<<i.name<<endl;
+ }
+
+ return 0;
+ }
+--------------------------------------------------------------------------------------
+**2) Multi Set :-
+------------------
+	* Syntax : multiset<Type_name> object_name;
+	* Multi set is a Assosiative container it conaines sorted set of
+	  * objects 
+	* It can contain duplicate objects
+	* That is the diffrence between set and mulitiset
+	* It is usually implemented using *Red Black Tree*
+	* If we want to store User defined objects in the Multiset than we will
+	  * provide Compare Function(overloaded >_or_<) to it
+	* We can also pass the order of sort lessthan or greater like set
+ 
+//check Notes of Set
+--------------------------------------------------------------------------------------
+**3) Map:-
+----------
+	* Syntax :- map<Key_Type,Value_T2> obj_name;
+	* Map is a assosiative container that store datas using pair key and value
+	* values can be similer but keys should be unique
+	/* if key are same it override the privious element
+	* It is implemented using the Self-Balance Binary trees like(AVL,Red_Black)
+	* It store key value pair in sorted order
+	* It will sort with the key values
+	* If we storing the User defined data type we should provide Comparorter 
+  	  * function
+	* we can also decide order (lessthan/greater)
+	* Map is generally used in Dictionary type problem
+	  * Ex : "Hello" if this a key , it should be unique in holl dictionary
+	* Once you enter the key you can't change it but values can be changed
+
+Exampl 1:-
+
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+
+ int main(){ system ("color 7A");
+
+ map<int,string,greater<int>> Map;
+
+ Map[19]="Ajay";
+ Map[20]="Anjali";
+ Map[38]="Pushpa";
+ Map[50]="Manikandan";
+
+//Once you enter the key you can't change it, but values can be changed
+ Map[19]="Ajay Kumar";
+ //cout<<"Value at the key 19 : "<<Map[19]<<endl;//Ajay
+
+ //making new pair
+ //you can also use without end itr
+Map.insert(Map.end(),make_pair(70,"Velayuthan"));
+
+ //iterating
+ for(auto i:Map){
+    //first means key   //and second will be the value
+    cout<<i.first<<" "<<i.second<<endl;
+ }
+
+ return 0;
+ }
+
+Example 2:-
+
+#include <iostream>
+#include <set>
+#include <map>
+#include <string>
+#include <vector>
+#include <functional>
+using namespace std;
+
+ int main(){ system ("color 7A");
+
+ map<int,vector<string>,greater<int>> Map;
+
+ //Map[19].push_back("Ajay");
+ Map[19].push_back("Anjali");
+
+ Map[38].push_back("Pushpa");
+ Map[50].push_back("Manikandan");
+
+//now if you add new value of old key it append them
+ Map[19].push_back(" Ajay");//output:Ajay Ajay when using vector
+
+// auto itr=Map.begin();
+// cout<<"Value at the key 19 : "<<(*itr)<<endl;//Ajay
+
+ //making new pair
+//Map.insert(make_pair(70,"Velayuthan"));
+//insert will not work if you use vector in this map
+
+ //iterating
+ for(auto i:Map){
+    //first means key   //and second will be the value
+
+    cout<<i.first<<" ";//<<i.second<<endl;
+    //the i.second has the vector
+    for(auto j:i.second){cout<<j;}
+
+    cout<<endl;
+ }
+
+ return 0;
+ }
+--------------------------------------------------------------------------------------
+**4)Multi_Map:-
+
+	* Syntax : multimap<key_T1,value_T2>
+	* Multimap is an associative container that contains datas in sorted order
+	* The diffrence between map and multimap, it can contain duplicate keys and
+	  value pair
+	* similer keys also can be stored
+	* you can use greater or lessthan to Accend or deccend
+	* Data structure used in Multimap is Maybe Red_Black data structure
+	* LookUp function : count(),find(),equal_range(),lower_bound(),
+	  * upper_bound()
+	* We are not have []operator and at() function in Multi_map
+	* this operator(->) overloaded in iterator class 
+
+Exampe 1:-
+
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+
+ int main(){ system ("color 7A");
+
+ multimap<int,string> multiMap;
+// here key value same as previous
+ // but multimap will support copies
+
+//Note : When you using this will corrupt
+//       because it sorted in deccending order
+//       so you need to decrement the itr
+//       but it will work when you use higher range number
+
+// when using itr multiMap.equal_range(19);
+
+//after creating the itr
+    //initial itr           first
+           //            first second
+ multiMap.insert(make_pair(19,"Ajay"));
+ multiMap.insert(make_pair(19,"Anjali"));
+ //-----------------------------------------------
+
+ //initial itr              second
+           //            first second
+ multiMap.insert(make_pair(38,"Pushpa"));
+ multiMap.insert(make_pair(38,"Manikandan"));
+
+//pair<multimap<int,string>::iterator,multimap<int,
+//string>::iterator> itr=multiMap.equal_range(19);
+
+auto itr=multiMap.equal_range(19);
+
+//for(auto it=itr.first;it!=itr.second;it++){
+            //First
+//First
+ cout<<"Value at the key 19 : "
+ <<itr.first->first<<" "<<itr.first->second<<endl; //19 Ajay
+ itr.first++;
+//Second
+ cout<<"Value at the key 19 : "
+ <<itr.first->first<<" "<<itr.first->second<<endl; //19 Anjali
+
+                //Second
+//First
+  cout<<"Value at the key 38 : "
+  <<itr.second->first<<" "<<itr.second->second<<endl; //38 pushpa
+  itr.second++;
+//Second
+cout<<"Value at the key 38 : "<<itr.second->first<<" ";
+ cout<<itr.second->second<<endl;//38 manikandan
+
+
+ //making new pair
+//using pair<T1,T2> function
+multiMap.insert(pair<int,string>(70,"Velayuthan"));
+cout<<endl;
+
+ //iterating
+ for(auto i:multiMap){
+    //first means key   //and second will be the value
+    cout<<i.first<<" "<<i.second<<endl;
+ }
+
+ return 0;
+ }
+--------------------------------------------------------------------------------------
+Example 2:-
+
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+
+ int main(){ system ("color 7A");
+
+ multimap<int,string> multiMap;
+
+ multiMap.insert(make_pair(19,"Ajay"));
+ multiMap.insert(make_pair(19,"Anjali"));
+ multiMap.insert(make_pair(38,"Pushpa"));
+ multiMap.insert(make_pair(38,"Manikandan"));
+multiMap.insert(pair<int,string>(70,"Velayuthan"));
+
+//pair<multimap<int,string>::iterator,multimap<int,string>::iterator> itr=multiMap.equal_range(19);
+//use -> for final itr->first/second
+auto itr=multiMap.equal_range(19);
+//printing in range 19
+for(auto it=itr.first;it!=itr.second;it++){
+    cout<<it->first<<" "<<it->second<<endl;}cout<<endl;
+
+cout<<"Count of 19 : "<<multiMap.count(19)<<endl;
+
+//if 19 key exit in the map it will return an
+auto itr2 = multiMap.find(19);
+{cout<<"Find Function : "<<itr2->first<<" "<<itr2->second<<endl;}
+
+//it will return 1st stored key pair of given
+auto lb=multiMap.lower_bound(38);
+cout<<"Lower bound of 38 : "<<lb->first<<" "<<lb->second<<endl;
+
+//it will return next pair which is stored after 19
+// or next key of last 19 
+auto ub=multiMap.upper_bound(19);
+cout<<"upper bound of 19 : "<<ub->first<<" "<<ub->second<<endl;
+ return 0;
+ }
+--------------------------------------------------------------------------------------
+    ************************* Sequence Containers :-**************************
+       *********************************************************************
+    **Vectors
+ 	* check notes of vector in C++Notes.txt
+
+Exampl:-
+#include <iostream>
+// contiguous memory allocation
+#include <vector>
+
+// Doubly link list
+#include <list>
+#include <algorithm>
+using namespace std;
+
+ int main(){ system ("color 7A");
+
+ //if i change list here it will work properly
+	 list<int> vec{1000000 ,20000,3000,400,50};
+
+	// Iterators is similar to pointers
+	//creating int iterator for vector
+
+    // sort algorithm don't support list
+    // because sort algo using Random access Iterator
+    // but list is bidirectional iterator
+	sort(vec.begin(),vec.end());
+
+	//list<int>::iterator itr =vec.begin() ;//instead this
+    auto itr =vec.begin() ; //also we can use this
+
+    while(itr!= vec.end()){
+        cout<<"value of -> "<<*itr<<endl;
+        itr++;
+    }
+
+ }
+--------------------------------------------------------------------------------------
+// tree implementation in Vector
+// container in container
+#include <iostream>
+#include <vector>
+using namespace std;
+
+ int main(){ system ("color 7A");
+    vector<vector<int>> Tree;
+    int edge,n1,n2;
+
+    cout<<"Enter the edges of the Tree : ";
+    cin>>edge;
+    Tree.resize(edge);
+
+    for(int i=0;i<edge;i++){
+        cout<<endl<<"Enter the Nod and Value : ";
+        cin>>n1>>n2;
+        Tree[n1].push_back(n2);
+    }
+
+    for(auto i : Tree){
+        for(auto j:i){
+            cout<<" "<<j<<" ";
+        }cout<<endl<<" ";
+    }
+
+
+ }
+
+--------------------------------------------------------------------------------------
+**Forward_List:-
+	* syntax: forward_list<T>
+	* it is like singly linked list
+	* why should use this class insted of treditional single linked list
+	  * ex : list<vector<int>>
+	* Because it is well written and it has bunch of inbulit functions
+	* operator = is available but not [] operator
+	* you can use = to copy 
+	* but you can use iterator to print a single element
+	* you can't use back function
+	* it hadn't splice but has splice_after
+* Some functions :- 
+
+Example 1:-
+#include <iostream>
+#include <map>
+#include <string>
+#include <forward_list>
+using namespace std;
+
+ int main(){ system ("color 7A");
+
+ forward_list<double> FL1={20,1000,10,1,5,100,10,1};
+//forward_list<double> FL2={30,50,64,34,67,10};
+//1) insert n after the given itr
+    //FL1.insert_after(FL1.begin(),20.5);
+
+//2) reverse the total Flist
+//FL1.reverse();
+
+//3)sort in Ascending
+//FL1.sort(); FL2.sort();
+
+//4) merging two Flist
+  //i) Both should be sorted
+  // otherwise it just concordinate them
+  //(but in test both works normally)
+  //ii) Both should be same datatype(T)
+//FL1.merge(FL2);
+/* tested without sorting
+ auto irt=FL1.begin();
+cout<<*irt<<"\n\n";
+*/
+
+//5) moving all elements of FL2 to FL1
+//elements will save ater first element
+/*FL1.splice_after(FL1.begin(),FL2);
+
+//to know the current size of FL2
+cout<<"Current size of FL2 is : "
+<<distance(FL2.begin(),FL2.end())<<endl;
+
+//recalling the empty function
+if(FL2.empty()){cout<<"FL2 is empty"<<endl;}*/
+
+ //6) to remove duplicate elements
+ // only work if Flist is sorted
+ //because it will remove only its neibhour duplicates
+// FL1.unique();
+
+//7)to remove all n from the Flist
+//FL1.remove(1);
+
+//8)to remove all n>7or any num from the Flist
+//FL1.remove_if([](int n){return n>=10;});
+
+//9)tO resize the Flist
+//you can increase or decrease the size
+//extra elements initialized as 0
+//FL1.resize(10);
+
+//10)to find maximum number of elements that can
+//    stored in the Flist
+//cout<<FL1.max_size();
+
+//11) delete the preivious elements and storing
+    //new list of elements
+//FL1.assign({87,234,25,45,67,12,12,2,135});
+
+//12)to copy
+//FL1=FL2;
+
+    for(double i:FL1){cout<<i<<endl;}
+ return 0;
+ }
+--------------------------------------------------------------------------------------
+List:-
+	* Sysntax : list<T> list_name;
+	* This is nothing but doubly linked list
+	* List is a sequence container that allows non-contingues memory
+	  * allocation.
+	* Faster than other sequence container(vector,forward_list,deque)
+	  * in terms of insertion and moving elements in any position
+	  * we have itr there
+	* we should use this class insted of treditional linked list
+	* Because it well tested and it has bunch of inbuilt functions
+
+	* Some of the Functions:-
+	  * = operator to copy and assign,front,back,empty,size,max_size,
+	  * clear,insert,emplace,push_back,pop_back,push_front,pop_front
+	  * reverce,sort,merg,splice,unique,remove,remove_if,resize.
+	* it hadn't splice_after but has splice
+
+Example:-
+#include <iostream>
+#include <list>
+using namespace std;
+
+ int main(){ system ("color 7A");
+
+ list<double> FL1={5,4,3,2,1};
+ //to put new element in front
+//FL1.push_front(6);
+
+//to deltele 1st elemts in the list
+//FL1.pop_front();
+
+//to copy the elements to another List
+//FL1.splice(FL1.end(),FL2);
+
+
+    for(double i:FL1){cout<<i<<endl;}
+ return 0;
+ }
+
+--------------------------------------------------------------------------------------
+SubTopic:-
+---------
+std::Pair:-
+----------
+	* sysntax: std:pair<T1,T2> pairObj_name
+	* std::pair is struct that provides a way to store two objects as a
+	  * single unit
+	* it allows HetroGeneous (various_data_type)object to store
+	* map, multimap, unordered_map, unorderd_multimap can use pair to insert the 
+	  * data into their structures
+	* you can also use swap function
+
+Example2:
+#include <iostream>
+#include <list>
+#include <vector>
+#include <string>
+//using namespace std;
+
+
+// function that getting a pair obj as parameter and printing that
+// if you use & it won't make copy i think
+/*
+void print(std::pair<int,double>& obj){
+    std::cout<<obj.first<<" "<<obj.second<<std::endl; }*/
+
+ int main(){ system ("color 7A");
+
+
+    /*/ creating a object for pair and initializing it
+    {using namespace std;
+        //std::pair<int,double> pairobj(12,15.23);
+        //or you can use
+        pair<int,double> pairobj=std::make_pair(12,15.23);
+        print(pairobj);
+    }*/
+
+
+    // defining a vector which is containing a pair(of int and string)
+    std::vector<std::pair<int,std::string>> vecpair;
+
+    // inserting obj into vector
+        //using make_pair
+    vecpair.push_back(std::make_pair(12,"check_1"));
+
+        //using pair keyword and explicit comenting
+    vecpair.push_back(std::pair<int,std::string>(13,"check_2"));
+
+        //using insert and end iterator
+    vecpair.insert(vecpair.end(),std::pair<int,std::string>(14,"Check_3"));
+
+
+    //iterating using for each loop
+	//you can also use auto here
+    for(std::pair<int,std::string> i : vecpair){
+            std::cout<<i.first<<" "<<i.second<<std::endl;}
+
+   //copying another vector pair
+    std::vector<std::pair<int,std::string>> vecpair2(vecpair);
+
+              //iterating using for each loop
+    for(auto i : vecpair2){
+            std::cout<<i.first<<" "<<i.second<<std::endl;}
+
+ return 0;
+ }
+--------------------------------------------------------------------------------------
+**std::deque:-
+
+Note : Actually it is very small topic and also important so don't skip this ***
+
+	* Syntax : std::deque<T> deque_name ={ elements};
+	* Deque is a *indexed based* sequence container
+	* It allows fast insertion at both beginning and end
+	* unlike vector, elements of deque are not stored in contiguous
+	* because it store elements in several arrays each have 4 index
+	* and it internally perform like singly linked list
+	* it has individual allocated fixed size(4) array with addintional book
+	  * keeping, meaning index based access to deque 
+	* must perform two pointer dereference, but in vector we get in one 
+ 	  * derefernce. which means , that deque want to keep pointer1 for array 
+	  * and pointer2 for index (internally)
+	* the storage of deque is automatically expanded and contracted as needed
+	  * which means when we poping up in front 4 times , it will delete the 
+	  * empty array
+	* Expantion of deque is cheaper than expantion of vector
+	  * which means when exapantion of vector it shrink to double size of old
+	  * but deque doesn't do like that
+	* A deque has just one element to allocate its full internal internal array
+	* Random Access : constance 0(1) //0 mention the array and 1 mention the
+	  * index
+	* Insertion or removal of elements at the end or beginig - constant 0(1)
+	  * if you push or poped any elements in from the deque it just grow or 
+	  * crop you the internal array
+	* But removal of elements in the middle - linear 0(n)
+	  * which means if you remove or add new element in the middle it needs to
+	  * shift all the elements to fill the empty index
+Simple Example:-
+
+#include <iostream>
+#include <deque>
+#include <string>
+#include <algorithm>
+void print(const std::deque<int>& obj){
+    //iterator
+    for(int i: obj){
+std::cout<<i<<" ";}
+std::cout<<std::endl;}
+
+ int main(){ system ("color 7A");
+    std::deque<int> Deque1;
+    Deque1={10,8,6,4,2,0};//not workong- sort(Deque1);
+    std::cout<<"After initializing : "; print(Deque1);
+
+    {
+    Deque1.push_back(-2);
+    Deque1.push_front(12);
+
+    std::cout<<"After Pushing back and front : ";
+    print(Deque1);
+    }
+std::cout<<std::endl;
+    {
+        Deque1.pop_back();
+        Deque1.pop_front();
+
+    std::cout<<"After Poping back and front : ";
+        print(Deque1);
+    }
+ return 0;
+ }
+--------------------------------------------------------------------------------------
+*Container Adapter*
+
+std::queue:-
+------------
+	* std::queue class is a **container adapter** that gives the programmer the 
+	  * funtionality of a queue
+	* queue is FIFO (First_In -- First_Out) data structure
+	* std::queue provied only specific set of functions
+	* [ ] operator not available
+	* std::queue allows to push(insert) at back and pop(remove) from front
+	* std::gives front,back,push,pop,empty,size
+	* we can't use normal for each loop for iterating
+Example:-
+
+#include <iostream>
+#include <queue>
+#include <string>
+#include <algorithm>
+void print(std::queue<int> que){
+    //iterating
+    while(!que.empty()){
+
+std::cout<<que.front()<<" ";
+que.pop();}
+std::cout<<"\nSize of Queue @ the end : "<<que.size()
+<<std::endl;}
+
+ int main(){ system ("color 7A");
+    std::queue<int> qu;
+    qu.push(1);
+    qu.push(2);
+    qu.push(3);
+    qu.push(4);
+    qu.push(5);
+    print(qu);
+    std::cout<<"\nSize of Queue @ the main() : "<<qu.size()
+    <<std::endl;
+ return 0;
+ }
+--------------------------------------------------------------------------------------
+*Container Adapter*
+
+***std::stack:-
+---------------
+	* std::stack class is a conatainer adaptor which is not container but it does
+	  * adapt the existing container
+	* that gives the programmer the functionality of a stack
+	* Internally it uses std::deque STL container
+	* It is LIFO (Last_in -- First_out) data structure
+	* std::stack allows to push and pop from back
+	* Some important function in std::stack
+	* empty(), size(), push(), pop()
+	* top() // return the reference to the top most element in the stack
+
+Example:-
+
+#include <iostream>
+#include <stack>
+void print(std::stack<int> que){
+    // we can't use normal for each loop for iterating
+    //iterating
+    while(!que.empty()){
+   //auto itr=;
+
+std::cout<<que.top()<<" ";
+que.pop();}
+
+std::cout<<"\nSize of Queue @ the end : "<<que.size()
+<<std::endl;}
+
+ int main(){ system ("color 7A");
+
+    std::stack<int> qu;
+
+    // google about this
+// maybe, it means what type used stack you want
+//whatever like that
+   // std::stack<int,std::vector<int>> qu;
+    qu.push(1);
+    qu.push(2);
+    qu.push(3);
+    qu.push(4);
+    qu.push(5);
+    print(qu);
+    std::cout<<"\nSize of Queue @ the main() : "<<qu.size()
+    <<std::endl;
+ return 0;
+ }
+--------------------------------------------------------------------------------------
+*Container Adapter*
+
+**std::priority_queue:-
+---------------------
+	* syntax : std::priority_queue<T1> obj; 	0R
+	* std::priority_queue<T1,containerWantToExecute,comparator> obj;
+
+	* std::priority_queue is a *container adaptor* that provides constants time
+	  * lookup of the largest 0R smallest element
+	* By defult it is using, the container vector inside or internally
+	* cost of insertion and extraction is logarthmic, which means it is using
+	  * tree strcture inside in it
+	* priority_queue is implemented using make_heap, push_heap,
+	  * pop_heap functions
+	* if it is maxHeap means the rootNod of tree would be maxium valued element
+	* if it is minHeap means the rootNod of tree would be minium valued element
+	* you can also pass comparator greater or lessthan
+	  * But here if you gave greater here it will make min_heap
+	  * and by defult it is max_heap
+	* some functions top(),pop(),push()
+Example:-
+
+#include <iostream>
+#include <vector>//PQ implemented using vector
+#include <queue>
+template <typename T>
+void print(T pque)
+{
+    // we can't use normal for each loop for iterating
+    //iterating
+    while(!pque.empty()){
+
+std::cout<<pque.top()<<" ";
+pque.pop();}std::cout<<std::endl;
+}
+
+ int main(){ system ("color 7A");
+{//////////// 1
+ std::priority_queue<int> pq;
+
+ std::cout<<"8th Table with Max_heap :-\n";
+    for(int i:{8,16,24,32,40,48,56,64,72,80}){
+            pq.push(i);
+    } print(pq);
+}
+{//////////// 2
+std::priority_queue<int,std::vector<int>,std::greater<int>> pq2;
+     std::cout<<"\n8th Table with Min_heap :-\n";
+    for(int i:{8,16,24,32,40,48,56,64,72,80}){
+            pq2.push(i);
+    } print(pq2);
+}
+//*********************************************************
+// creating own comparator //
+ {//////////// 3
+  auto cmp=[](int a,int b){return a<b;};
+
+std::priority_queue<int,std::vector<int>,decltype(cmp)> pq3(cmp);
+     pq3.push(29);
+     pq3.push(20);
+     pq3.push(26);
+     pq3.push(20);
+     pq3.push(23);
+     pq3.push(25);
+
+     std::cout<<"\nWith own comparator :-\n";
+     print(pq3);
+ }
+//*********************************************************
+ return 0;
+ }
+--------------------------------------------------------------------------------------
+**unordered_set:-
+	* Unique but unordered
+	* std::unordered_set is similer to std::set but it doen't sort the elements
+	* unordered_set is an associtive container that contains unique objects
+	* search, insertion, and removal have average constant-time complexity
+	  * Because it is working in Hash and bucket consept
+	* Internally, the elements are organized into buckets
+	* It uses hashes to insert elements in the bucket
+	* This allows fast access to individual elements, since once a hash is 
+	  * completed, it refer to the exact bucket the elements is placed into.
+	* like n.0 -one bucket, n.1 -another bucket, n.3 -another bucket...
+
+	*Why unordered_set ? 
+	  * maintain a collection of unique items with fast insertion and removal
+Example:-
+
+#include <iostream>
+#include <unordered_set>
+
+ int main(){ system ("color 7A");
+//////////// 1
+
+	std::unordered_set<int> Set{9,1,1,2,2,3,3,4,4,5,5};
+ 	//5 4 3 2 1 9
+    for(auto i:Set){std::cout<<i<<" ";}
+
+    //finding certain element
+    auto search = Set.find(3);
+    if(search!=Set.end()){
+        std::cout<<"\nFound : "<<*(search)<<"\n";
+    }else {std::cout<<"Not Found\n";}
+return 0;
+ }
+--------------------------------------------------------------------------------------
+3:24 PM 05-Jul-21
+---------------
+**unordered_multiset:-3:
+----------------------
+	* *-No Unique_No ordered/sorted-*
+	* it will maintain a collection of non_unique items with fast insertion and
+	  * removal
+	* It uses buckets and hashing method and not like binary tree
+	* std::Unordered_multiset is a associative conatiner that contains set of
+	  * possibly non_unique objects
+	* search, insertion, and removal have average constant time complexity
+	* But internally it doesn't maintain the same order it rearange it using
+	  * **hashing and buckets**
+	* It can count how many duplicates are there
+	* Some functions : count,empty()
+	* find(n)	// retrun iterator
+	
+Simple Example :-
+-----------------
+
+#include <iostream>
+#include <unordered_set>
+int main()
+{system("color 7A");
+
+    std::unordered_multiset<int> ums={3,7,9,5,8,6,2,5,8,5,4,2,5,6,5,7};
+    ums.insert(5);
+
+std::cout<<ums.empty()<<endl;//0
+
+    std::unordered_multiset<int>::iterator itr=ums.find(5);
+    if(itr!=ums.end())
+        {std::cout<<ums.count(*(itr))<<" "<<*itr<<" Found"<<std::endl;
+            //6 '5' founded
+    }
+
+    for(int i:ums){std::cout<<i<<" ";}
+   //4 2 2 6 6 8 8 5 5 5 5 5 5 9 7 7 3
+ }
+--------------------------------------------------------------------------------------
+**unordered_map:-
+	* unlike map it doesn't sort the pair key and values 
+	* and it will not allows duplicate keys
+	* it is using Hash and Bucket method to store the elements
+	* it can maintain a collection of unique key:value pairs with fast insertion 
+	  * and removal
+	* we can use[] like un_mp[key]// value of key will be return 
+	* and we can replace the value of key using um_mp[key]=new_value
+	
+Example:-
+
+#include <iostream>
+#include <unordered_map>
+
+//bool operator>(const Prize& rhs) const{return i>rhs}
+int main()
+{system("color 7A");
+
+  std::unordered_map<int,char> um ={{2,'a'},{3,'b'},{4,'c'}};
+
+  um.insert(std::make_pair(5,'d'));
+
+//   std::unordered_map<int,char>::iterator itr=um.begin();
+
+    um[2]='d';//changing value
+    std::cout<<um[2]<<" "<<std::endl; //d
+
+    std::unordered_map<int,char>::iterator itr=um.find(4);
+    // searching for key 4
+
+    if(itr!=um.end()){
+
+        std::cout<<itr->first<<" Found "<<"Value is : "<<itr->second<<std::endl;
+    }else std::cout<<"Not found"<<std::endl;
+--------------------------------------------------------------------------------------
+**unordered_multimap:-
+	* unordered multimap is an unordered associative container that supports
+	  * equialent keys and that associtaive values of another type with the key
+	* Searching insertion removal have average contant time complexity
+	* Internally the elements are organized in buckets
+	* This uses hashing to insert elements in to the buckets
+	* this allows fast access to individual elements since once hash is computed
+	  * it refers to the exact bucket the element is placed into
+	* Maintain a colection od non-unique key_value pairs without insertion and
+	  * removal
+	* [] not available because keys maybe duplicates
+
+Examples :-
+#include <iostream>
+#include <unordered_map>
+
+//bool operator>(const Prize& rhs) const{return i>rhs}
+int main()
+{system("color 7A");
+
+  std::unordered_multimap<int,char> um ={{2,'a'},{3,'b'},{4,'c'}};
+
+  um.insert(std::make_pair(5,'d'));
+  um.insert(std::pair<int,char>(5,'d'));
+
+//   std::unordered_map<int,char>::iterator itr=um.begin();
+
+    um.insert(std::make_pair(2,'d'));//changing value
+
+    //counting duplicates
+    std::cout<<"Duplicates of key 2 is : "<<um.count(2)<<std::endl; //d
+
+    std::unordered_map<int,char>::iterator itr=um.find(4);
+    // searching for key 4
+
+    if(itr!=um.end()){
+
+        std::cout<<itr->first<<" Found "<<"Value is : "<<itr->second<<std::endl;
+    }else std::cout<<"Not found"<<std::endl;
+
+    for(auto i:um){
+   std::cout<<i.first<<" "<<i.second<<std::endl;
+    }
+ }
+
+--------------------------------------------------------------------------------------
+    ******************************* ALGORITHMS :-******************************
+       *********************************************************************
+Intro:-
+	* STL Algorithms library defines functions for a verity of purpos like
+	  * (e.g searching, count, sorting, manipulating)
+	* Algorithms are applied to range of elements
+	  * based on what what range we gave in that range Algorithms work within it
+	* <algorithm> headerd is used to get all Algorithms in STL
+
+Some main Algorithms:-
+	* std::find(start_range,end_range,n)	//pass rangr in iterator
+	  * this is not that find which is used in some programs but it is similer
+
+	* std::sort
+--------------------------------------------------------------------------------------
+std::find:-
+-----------
+
+    std::vector<int> vec={100,90,80,70,60,50,40,30,20,10};
+    std::vector<int>::iterator itr =std::find(vec.begin(),vec.end(),90);
+    if(itr!=vec.end()){std::cout<<*itr<<" Found"<<std::endl;}
+    else std::cout<<"Not found"<<std::endl;
+--------------------------------------------------------------------------------------
+4:00 PM 15-Jul-21
+short note on multi threading:-
+-----------------------------
+	* In every application there is a thread called main().
+	* in side the main we create other threads.
+	* A thread is also known as light weight process.
+	* process is hevier than the thread
+	* thread actually runs in the process
+	* Idea is dividing the process into multiple threads
+	   * Examples :-
+		* The browsers has multiple tabs that can be different threads 
+		* MS WORD must be using multi threads for format text and another for 
+		  * spell cheking
+		* Compilers would have be using multi threading for auto complete the 
+		  * code (like When we type io... it shows iostream<>)
+	* Ways to creat threads in c++ 
+	      i) Function Pointers
+	     ii) Lambda Functions
+	    iii) Functors *********************************************************
+	     iv) Member Functions
+	      v) Static member Functions 
+	* In Normal Function calling is sigle thread 
+	* But in multi Tread 2 functions runs at the same time 
+
+std::sort:-
+----------
+	* In c++ STL we have sort function which can sort in increasing order and 
+	  * decreasing order.
+	* Not only integral type but user defined type also can be sorted using this 
+	  * funtion
+	* Internally it uses Introsort which is a combination of Quick sort heap sort 
+	  * and Insertion sort 
+	* By default it uses Quick sort if is it taking more time it changes the method
+	* This can do parallel ececution policy for better experuience 
+	* you can also pass comparator like sort (begin,end,greater<type>())**
+	* Types of using sort:-
+	  * 1) Sorting integral data types
+	  * 2) Sorting user defined type 
+	  * 3) Sort using a function object
+	  * 4) Sort using lamda function
+Example :-
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+    //method two sort using user defined objects
+/*
+class Point {
+public :
+
+    int x,y;
+    Point(int x,int y): x{x}, y{y} {}
+    //you want to provide comparator for user defined types
+    bool operator<(const Point& p) const { return (x<p.x)&& (y<p.y);}
+
+};
+*/
+ /*   //method 3 sort using function object
+struct {
+    bool operator()(int i,int j)
+    const { return i<j;}
+
+} comparator;
+*/
+int main(){ system("color 72");
+ /*// method 1 sort using integral type
+ vector<int> v{6,6,7,4,2,4,1,0,3,1};
+
+ //sort(execution::par,v.begin(),v.end());
+ sort(v.begin(),v.end());
+ for (auto i: v){cout<<i<<" ";} // 0.618 s
+*/
+/*    //method 2 using user defined function
+
+    vector<Point> v{{2,4},{6,8},{1,3}};
+    //you can also pushback the objects
+    sort(v.begin(),v.end());
+
+    for(auto j:v){cout<<j.x<<" "<<j.y<<endl;}
+*/
+
+ /*   //method 3 function operator
+    vector<int> v{6,6,7,4,2,4,1,0,3,1};
+    sort(v.begin(),v.end(),comparator);//it will call with ()
+    for(auto j:v){cout<<j<<" ";}
+*/
+  /*  //method 4 lamda function
+    vector<int> v{6,6,7,4,2,4,1,0,3,1};
+    sort(v.begin(),v.end(),[](int a,int b){return a<b;});
+    for(auto j:v){cout<<j<<" ";}
+*/
+ /*   //sort in decending order
+    vector<int> v{6,6,7,4,2,4,1,0,3,1};
+    sort(v.begin(),v.end(),greater<int>());
+    for(auto j:v){cout<<j<<" ";}
+*/
+}
+--------------------------------------------------------------------------------------
+std::is_sorted:-
+---------
+	* check if the elements in range (first,last,comparar(if want)) 
+	  * are sorted or not 
+Exmaple :-
+----------
+    vector<int> v{6,6,7,4,2,4,1,0,3,1};
+    sort(v.begin(),v.end(),greater<int>());
+    for(auto j:v){cout<<j<<" ";}cout<<endl;
+    cout<<is_sorted(v.begin(),v.end(),greater<int>());
+--------------------------------------------------------------------------------------
+std::partial_sort:-
+------------------
+	* Sort a specific range of the list 
+	* syntax- partial_sort(vec.begin(),vec.begin()+n,vec.end(),comparator)
+	* It means that take vec.begin to vec.end() and sort from vec.begin()to
+	  ** vec.begin+n
+
+	* It will not change the place of middle number (vec.beg+n)
+	* It will rearrange the rest elements
+	* It will look for the arrange till end()//(if we gave end())
+	* comparator also available
+ 	* It looks for better elements in the holl vector
+	* The order of equal unsorted elements is undefined
+	* it also has parallel threads
+
+Examples:-
+----------
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+    //method two sort using user defined objects
+/*
+class Point {
+public :
+
+    int x,y;
+    Point(int x,int y): x{x}, y{y} {}
+    //you want to provide comparator for user defined types
+    bool operator<(const Point& p) const { return (x<p.x)&& (y<p.y);}
+    bool operator>(const Point& p) const { return (x>p.x)&& (y>p.y);}
+}; */
+
+/*//method 3 sort using function object
+struct {
+    bool operator()(int i,int j)
+    const { return i<j;}
+} comparator;
+*/
+
+int main(){ system("color 72");
+ /*// method 1 sort using integral type
+ vector<int> v{6,6,7,4,9,4,1,0,3,1};
+
+ //sort(execution::par,v.begin(),v.end());
+ partial_sort(v.begin(),v.begin()+3,v.end()-3);
+ for (auto i: v){cout<<i<<" ";}
+ // | 1 4 4 | 7 9 6 6 0 | // 3 1
+
+*/
+/*//--------------------------------------------
+    //method 2 using user defined function
+
+    vector<Point> v{{2,4},{6,8},{1,3},{10,12},{3,5},{7,9}};
+    //you can also pushback the objects
+    partial_sort(v.begin(),v.begin()+3,v.end()-2);
+    //partial_sort(v.begin(),v.begin()+3,v.end()-2,greater<Point>());
+    for(auto j:v){cout<<j.x<<" "<<j.y<<endl;}
+    // |1 3, 2 4,| 6 8, 10 12,| 3 5 , 7 9
+*/
+/*//---------------------------------------------
+   //method 3 function operator
+
+    vector<int> v{6,6,7,4,2,4,1,0,3,1};
+    //normal sort using partial sort
+    partial_sort(v.begin(),v.end(),v.end(),comparator);//it will call with ()
+    for(auto j:v){cout<<j<<" ";}
+*/
+/*    //method 4 lamda function
+    vector<int> v{6,6,7,4,2,4,1,0,3,1};
+    partial_sort(v.begin(),v.end()-3,v.end(),[](int a,int b){return a>b;});
+    for(auto j:v){cout<<j<<" ";}
+    //| 7 6 6 4 4 3 2 | 0 1 1 |
+    //last 3 is leaved as "Ekkedu ketta enakkenna"
+*/
+    //sort in decending order
+}
+--------------------------------------------------------------------------------------
+std::nth_element:-
+------------------
+	* nth_element is a partial sort algorithm that rearrages elements in
+	  * [first, last) /*Inckude first but Exclude Second*/ such that
+	* It will give you the nth position if the one should be at that position
+	  * if we sort the list
+	* syntax- nth_elements(vec.beg(),vec.beg()+n,vec.end())
+ 	* It does not sort the list, just that all the elements, which precede
+	  * the nth element are not greater than it.
+	* nth_element algorithm is implemented using *introselect*.
+	  * Introselect is a hybrid combination of quick select and median of median
+	  * Algorithm
+	    * quickselect is used to find the smallest number in the array 
+	      * without sorting it
+	    * median of median is a median selection algorithm for better pivot
+	      * selection manually used in quickselect
+
+	** It will not sort the array but it will re arrange the array **
+Example:-
+---------
+vector<int> v{6,6,7,4,9,4,1,0,3,1};
+ //0 1 1 3 |4| 9 7 6 6 4
+  nth_element(v.begin(),v.end()-1,v.end());
+ //4 1 3 0 1 4 6 6 7 9
+ cout<<v[9]<<endl;//9
+
+                //finding median
+    nth_element(v.begin(),v.begin()+ v.size()/2,v.end());
+ cout<<v[v.size()/2];//4
+--------------------------------------------------------------------------------------
+std::is_sorted_untill:-
+-----------------------
+	* syntax- is_sorted_untill(Begin_itr,end_itr,comparator)
+	* It will return a iterator that had how many elements (first_itr
+	  * to last_itr) in the array
+	* This is differ from the is_sorted because is_sorted will only 
+	  * return bool(yes or no) but this will return how many elements 
+	  * are sorted
+	* It will not change or rearrange array unlike nth_elelemnt
+Example:-
+---------
+    vector<int> v{7,6,5,4,3,2,1,8,9,10,};
+
+    //case 1 :
+    //auto it=is_sorted_until(v.begin(),v.end());
+    //auto dint=distance(v.begin(),it);
+    //cout<<dint<<endl;//1
+
+    //case 2:
+    //auto it2=is_sorted_until(v.begin()+6,v.end());
+    //auto dint2=distance(v.begin()+6,it2);
+    //cout<<dint2<<endl;//4
+
+    //case 3:
+    //auto it3=is_sorted_until(v.begin(),v.end(),greater<int>());
+    //auto dint3=distance(v.begin(),it3);
+    //cout<<dint3;//7
+--------------------------------------------------------------------------------------
+std::iota:-
+-----------
+	* Fill the range [first_itrt,last_itrt) with sequentialy increasing the value
+	* syntax(strt_itr,end_itr,n)
+Example:-
+---------
+    vector<int> v(10);
+    iota(v.begin(),v.end(),4);
+    for(auto i:v){cout<<i<<" ";}cout<<endl;
+    //4 5 6 7 8 9 10 11 12 13
+    
+    //vector of vector_itrs with size of vector V
+    vector<vector<int>::iterator> v1(v.size());
+    
+    //Auto Filling that with iterators of vector V
+    iota(v1.begin(),v1.end(),v.begin());
+    for(auto i:v1){cout<<*i<<" ";}cout<<endl;
+--------------------------------------------------------------------------------------
+std::copy:-
+-----------
+	* Copy algorithm is similer to assaingment operator
+	* But the differrence is that in this copy algorithm, you can set the range
+	  * begin()+n and end()-n
+	* sysntax- copy(destination_begin_itr,destination_end_itr,source_begin_itr)
+
+	* or- copy(destination_begin_itr,destination_end_itr,back_insertion(sourc))
+	* if use this the size of destination you dont want to know
+Examples:-
+----------
+void print(const vector<int>& destination_v2){
+copy(destination_v2.begin(),destination_v2.end(),ostream_iterator<int>(cout," "));
+cout<<endl; }
+
+int main(){ system("color 72");
+
+    //method 1
+    vector<int> source_v(10);
+    iota(source_v.begin(),source_v.end(),10);
+
+    vector<int> destination_v(source_v.size());
+    copy(source_v.begin(),source_v.end(),destination_v.begin());
+
+        for(int i:destination_v){cout<<i<<" ";}cout<<endl;
+//----------------------------------------------------------------
+    //method 2
+    vector<int> destination_v2;//here you don't want to care about the size
+    copy(source_v.begin()+2,source_v.end()-1,back_inserter(destination_v2));
+   cout<<"      "; //for(int i:destination_v2){cout<<i<<" ";}cout<<endl;
+    print(destination_v2);
+//-----------------------------------------------------------------
+    return 0;
+}	 
+--------------------------------------------------------------------------------------
+std::copy_if:-
+--------------
+	* Copy if condition get satisfied
+	* syntax- copy_if(begin_itr,end_itr,comparator)
+Examples:- 
+----------
+//method 1
+    vector<int> source_v(10);
+    iota(source_v.begin(),source_v.end(),10);
+
+    vector<int> destination_v(source_v.size());
+
+    copy_if(source_v.begin(),source_v.end(),destination_v.begin(),comparator);
+	//i declared struct operator() comparator
+--------------------------------------------------------------------------------------
+std::copy_n:-
+-------------
+	* It is nothing but copying only n elements from the source to destination
+	* syntax- copy_n(source_begin_itr,n,destination_begin_itr)
+Example:-
+---------
+    vector<int> source_v(10);
+    iota(source_v.begin(),source_v.end(),10);
+
+    vector<int> destination_v(source_v.size());
+
+    copy_n(source_v.begin(),5,destination_v.begin());
+	
+	// i had declared print function which is using copy() algo
+    print<vector<int>>(destination_v);//10 11 12 13 14 0 0 0 0 0
+--------------------------------------------------------------------------------------
+std::copy_backward :-
+-----------------
+	* It is used to copy from backward
+	* Like copying a small array to big array
+	* It will not change the position of the array
+Example:-
+---------
+	//*/method 1
+    vector<int> source_v(10);
+    iota(source_v.begin(),source_v.end(),10);
+
+    vector<int> destination_v(15);
+
+    copy_backward(source_v.begin(),source_v.end(),destination_v.end());
+
+    print<vector<int>>(destination_v);
+    //0 0 0 0 0 10 11 12 13 14 15 16 17 18 19
+--------------------------------------------------------------------------------------
+std::reverce:-
+--------------
+	* It is used to revercve the elements in the container
+
+Examples:-
+----------
+int main(){
+    vector<int> v{1,2,3,4,5,6,7};
+    reverse(v.begin(),v.end());
+for(auto j:v){cout<<j<<" ";};
+}
+--------------------------------------------------------------------------------------
