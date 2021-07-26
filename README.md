@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @Ajay-kumar-gdr
+- 👋 Hi, I’m @Ajay-kumar
 - 👀 I’m interested in Programming
 - 🌱 I’m currently learning c++
 - 📫 mail ID : white948877@gmail.com
